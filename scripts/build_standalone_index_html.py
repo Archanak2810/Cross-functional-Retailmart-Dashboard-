@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+"""
+Builds the standalone, client-side interactive HTML dashboard for GitHub Pages (index.html).
+Renders all 3 Domain Suites (Marketing, Digital, Logistics; Sales, Customer, Operations; HR, Finance)
+along with Executive Summary, Scenario Simulator, ApexCharts visualizations, and direct deliverable download links.
+"""
+
+import os
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+GITHUB_DIR = os.path.join(BASE_DIR, 'retailmart_bi_github')
+INDEX_FILE = os.path.join(GITHUB_DIR, 'index.html')
+
+html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1435,3 +1447,9 @@
     </script>
 </body>
 </html>
+"""
+
+with open(INDEX_FILE, 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print(f"Successfully generated standalone index.html at {INDEX_FILE}!")
